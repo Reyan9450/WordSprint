@@ -1,13 +1,34 @@
-import { useSelector, useDispatch } from "react-redux";
-import { setWpm } from "../store/slice.js" // Assuming setWpm is an action in your slice
+import { setWpm } from "../store/slice.js";
 
 // This function can now be imported and called in any other file
-export const calculateWPM = (input, text, dispatch) => {
+export const calculateWPM = (input, text, dispatch, timer) => {
+    console.log("initial timer",timer);
+    let timeElapsed;
+
+    // Adjust timeElapsed based on the timer value
+    if (timer === 30) {
+        timeElapsed = 0.5;
+    } else if (timer === 15) {
+        timeElapsed = 0.25;
+    } else {
+        timeElapsed = 1; // Default value
+    }
+
     // Ensure both text and input are not empty
     if (text.trim() !== "" && input.trim() !== "") {
-        const wordsTyped = input.trim().split(/\s+/).length; // Count words in input
-        const timeElapsed = 1; // Replace with actual elapsed time in minutes
-        const wpm = Math.round(wordsTyped / timeElapsed); // Calculate WPM (words per minute)
+        const inputWords = input.trim().split(/\s+/); // Split input into words
+        const textWords = text.trim().split(/\s+/);   // Split reference text into words
+
+        // Count the number of correctly typed words
+        let correctWords = 0;
+        for (let i = 0; i < inputWords.length; i++) {
+            if (inputWords[i] === textWords[i]) {
+                correctWords++;
+            }
+        }
+
+        // Calculate WPM based on correctly typed words
+        const wpm = Math.round(correctWords / timeElapsed); // Words per minute
 
         // Dispatch the WPM to the store
         dispatch(setWpm(wpm));

@@ -1,0 +1,75 @@
+/* Make the test container take up the full viewport */
+.test-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden; /* Prevent scrolling if content overflows */
+  }
+  
+  /* Make each section fit within the view */
+  .test-container > * {
+    width: 100%;
+    max-width: 500px; /* Restrict the width */
+    margin-bottom: 15px;
+  }
+  
+  /* Timer container */
+  .timer-container {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+  /* Show text container */
+  .show-text-container {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+  
+  /* Type text container */
+  .type-text-container {
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  /* Calculate WPM */
+  .calculate-wpm {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+  
+  /* Reset button */
+  .reset-button {
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  /* Show timer */
+  .show-timer {
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 600px) {
+    .test-container {
+      padding: 5px;
+    }
+  
+    .test-container > * {
+      max-width: 90%; /* Allow more width on smaller screens */
+    }
+  
+    .timer-container,
+    .show-text-container,
+    .type-text-container,
+    .calculate-wpm,
+    .reset-button,
+    .show-timer {
+      font-size: 1rem; /* Reduce font size on smaller screens */
+    }
+  }
+  
