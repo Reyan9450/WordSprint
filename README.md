@@ -31,4 +31,4 @@ To run the project on your system:
 [Live Project Link](https://word-sprint-rho.vercel.app/)   
 
 ## Demo Video  
-[Watch the Demo](./ViteReact-GoogleChrome2025-03-0517-59-36-ezgif.com-video-to-gif-converter.gif)
+![Watch the Demo](./ViteReact-GoogleChrome2025-03-0517-59-36-ezgif.com-video-to-gif-converter.gif)
